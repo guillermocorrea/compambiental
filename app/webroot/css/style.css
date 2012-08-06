@@ -1,0 +1,26 @@
+/*#main ul{
+	padding:0;
+	margin:0;
+}
+#main ul li{
+	padding-left:20px;
+	list-style:none;
+}*/
+.error-message {
+	color: #B94A48;
+	margin: -10px 0 10px 0;
+	font-style: italic;
+}
+.margin_bottom_10{
+	margin-bottom: 10px;
+}
+.required label{
+	font-weight: bold;
+}
+/*.required.error > input[type='text'] {
+	border-color: #B94A48;
+}*/
+/*remove dotted outline ie*/
+input,input:focus,input[type='submit'],input[type='submit']:focus,button,button:focus{
+	outline: none; 
+}
