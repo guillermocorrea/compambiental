@@ -18,6 +18,11 @@
  */
 ?>
 
+	public function beforeFilter()
+	{
+		parent::beforeFilter();
+	}
+
 /**
  * <?php echo $admin ?>index method
  *
@@ -53,7 +58,7 @@
 			$this-><?php echo $currentModelName; ?>->create();
 			if ($this-><?php echo $currentModelName; ?>->save($this->request->data)) {
 <?php if ($wannaUseSession): ?>
-				$this->setFlashSuccess('<?php echo strtolower($singularHumanName); ?>' registrado correctamente);
+				$this->setFlashSuccess('<?php echo strtolower($singularHumanName); ?> registrado correctamente');
 				$this->redirect(array('action' => 'index'));
 <?php else: ?>
 				$this->flash(__('<?php echo ucfirst(strtolower($currentModelName)); ?> saved.'), array('action' => 'index'));
@@ -96,7 +101,7 @@
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this-><?php echo $currentModelName; ?>->save($this->request->data)) {
 <?php if ($wannaUseSession): ?>
-				$this->setFlashSuccess('<?php echo strtolower($singularHumanName); ?>' registrado correctamente);
+				$this->setFlashSuccess('<?php echo strtolower($singularHumanName); ?> registrado correctamente');
 				$this->redirect(array('action' => 'index'));
 <?php else: ?>
 				$this->flash(__('The <?php echo strtolower($singularHumanName); ?> has been saved.'), array('action' => 'index'));
@@ -142,7 +147,7 @@
 		}
 		if ($this-><?php echo $currentModelName; ?>->delete()) {
 <?php if ($wannaUseSession): ?>
-			$this->setFlashSuccess('<?php echo ucfirst(strtolower($singularHumanName)); ?>' eliminado correctamente);
+			$this->setFlashSuccess('<?php echo ucfirst(strtolower($singularHumanName)); ?> eliminado correctamente');
 			$this->redirect(array('action' => 'index'));
 <?php else: ?>
 			$this->flash(__('<?php echo ucfirst(strtolower($singularHumanName)); ?> deleted'), array('action' => 'index'));

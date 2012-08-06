@@ -16,32 +16,63 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<div class="<?php echo $pluralVar;?> form">
-<?php echo "<?php echo \$this->Form->create('{$modelClass}');?>\n";?>
-	<fieldset>
-		<legend><?php printf("<?php echo __('%s %s'); ?>", Inflector::humanize($action), $singularHumanName); ?></legend>
+<?php $controller = strtolower($pluralHumanName);?>
+<div class="row">
+	<div class="span8">
+
+		<ul class="breadcrumb">
+		  <li>
+		    <?php echo "<?php echo \$this->Html->link('Inicio', '/')?>\n"?> <span class="divider">/</span>
+		  </li>
+		  <li>
+		    <?php echo "<?php echo \$this->Html->link('{$pluralHumanName}', '/{$controller}')?>\n"?> <span class="divider">/</span>
+		  </li>
+		  <li class="active"><?php echo ucfirst($action) ?></li>
+		</ul>
+	
+<?php 
+echo "<?php echo \$this->Form->create
+(
+	'{$modelClass}',
+	array
+	(
+		'url' => array
+				(
+					'controller' => '{$controller}',
+					'action'	 => '{$action}'
+				),
+				'class'			=> 'well',
+				'inputDefaults' => array
+				(
+				)
+	)
+);?>\n";
+?>
+
 <?php
 		echo "\t<?php\n";
 		foreach ($fields as $field) {
 			if (strpos($action, 'add') !== false && $field == $primaryKey) {
 				continue;
 			} elseif (!in_array($field, array('created', 'modified', 'updated'))) {
-				echo "\t\techo \$this->Form->input('{$field}');\n";
+				echo "\t\techo \$this->Form->input('{$field}', array('class' => 'span5'));\n";
 			}
 		}
 		if (!empty($associations['hasAndBelongsToMany'])) {
 			foreach ($associations['hasAndBelongsToMany'] as $assocName => $assocData) {
-				echo "\t\techo \$this->Form->input('{$assocName}');\n";
+				echo "\t\techo \$this->Form->input('{$assocName}', array('class' => 'span5'));\n";
 			}
 		}
 		echo "\t?>\n";
-?>
-	</fieldset>
+?>	
+		
 <?php
-	echo "<?php echo \$this->Form->end(__('Guardar'));?>\n";
+	echo "<?php echo \$this->Form->end(array('label' => 'Registrar','class' => 'btn btn-primary'));?>\n";
 ?>
-</div>
-<div class="actions">
+
+</div> <!-- end main -->
+
+<div class="span2 offset1 well">
 	<h3><?php echo "<?php echo __('Opciones'); ?>"; ?></h3>
 	<ul>
 
@@ -62,4 +93,7 @@
 		}
 ?>
 	</ul>
+</div>
+
+	
 </div>

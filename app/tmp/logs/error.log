@@ -1002,3 +1002,6 @@
 #1 C:\wamp\www\caketrap\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #2 C:\wamp\www\caketrap\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #3 {main}
+2012-08-06 01:29:58 Error: [MissingControllerException] Controller class InfractionsController could not be found.
+#0 C:\wamp\www\caketrap\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
