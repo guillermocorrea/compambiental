@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CakeTrap v 0.1
 ---
 Caketrap is a simple HTML5 Ready Bootstrap for CakePHP Applications.
@@ -40,3 +41,7 @@ PRIMARY KEY (id)
 
 Have a question or found a bug? Please create an issue [here][] on GitHub!
 [here]: https://github.com/hugodias/caketrap/issues
+=======
+compambiental
+=============
+>>>>>>> 6ac230c6555e23f56a24347c68d4af4b9209913c
