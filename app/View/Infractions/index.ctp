@@ -1,5 +1,5 @@
 <div class="infractions index">
-	<h2><?php echo __('Infractions');?></h2>
+	<h2><?php echo __('Infracciones');?></h2>
 
 <table class="table table-striped">
         <thead>
@@ -8,8 +8,6 @@
 			<th><?php echo $this->Paginator->sort('codigo');?></th>
 			<th><?php echo $this->Paginator->sort('descripcion');?></th>
 			<th><?php echo $this->Paginator->sort('estado');?></th>
-			<th><?php echo $this->Paginator->sort('created');?></th>
-			<th><?php echo $this->Paginator->sort('modified');?></th>
 			<th class="actions"><?php echo __('Opciones');?></th>
 		  </tr>
 	    </thead>
@@ -21,12 +19,9 @@
 		<td><?php echo h($infraction['Infraction']['codigo']); ?>&nbsp;</td>
 		<td><?php echo h($infraction['Infraction']['descripcion']); ?>&nbsp;</td>
 		<td><?php echo h($infraction['Infraction']['estado']); ?>&nbsp;</td>
-		<td><?php echo h($infraction['Infraction']['created']); ?>&nbsp;</td>
-		<td><?php echo h($infraction['Infraction']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $infraction['Infraction']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $infraction['Infraction']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $infraction['Infraction']['id']), null, __('Realmente desea # %s?', $infraction['Infraction']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -47,13 +42,14 @@
 	?>
 	</div>
 </div>
-<div class="actions">
+<!--<div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('Registrar Infraction'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('Listar Comparendos'), array('controller' => 'comparendos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Registrar Comparendo'), array('controller' => 'comparendos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'values', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Registrar Value'), array('controller' => 'values', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'concepts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Registrar Value'), array('controller' => 'concepts', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+-->

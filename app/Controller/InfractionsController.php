@@ -16,6 +16,8 @@ class InfractionsController extends AppController {
 	public function index() {
 		$this->Infraction->recursive = 0;
 		$this->set('infractions', $this->paginate());
+		debug($this->Infraction->formato);
+		debug($this->Infraction->sentencia);
 	}
 
 /**

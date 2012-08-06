@@ -42,8 +42,8 @@
 		<li><?php echo $this->Html->link(__('Registrar Infraction'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Comparendos'), array('controller' => 'comparendos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Registrar| Comparendo'), array('controller' => 'comparendos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'values', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Registrar| Value'), array('controller' => 'values', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'concepts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Registrar| Value'), array('controller' => 'concepts', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
@@ -127,9 +127,9 @@
 			<td><?php echo $value['modified'];?></td>
 			<td><?php echo $value['infraction_id'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('Ver'), array('controller' => 'values', 'action' => 'view', $value['id'])); ?>
-				<?php echo $this->Html->link(__('Editar'), array('controller' => 'values', 'action' => 'edit', $value['id'])); ?>
-				<?php echo $this->Form->postLink(__('Eliminar'), array('controller' => 'values', 'action' => 'delete', $value['id']), null, __('Realmente desea eliminar # %s?', $value['id'])); ?>
+				<?php echo $this->Html->link(__('Ver'), array('controller' => 'concepts', 'action' => 'view', $value['id'])); ?>
+				<?php echo $this->Html->link(__('Editar'), array('controller' => 'concepts', 'action' => 'edit', $value['id'])); ?>
+				<?php echo $this->Form->postLink(__('Eliminar'), array('controller' => 'concepts', 'action' => 'delete', $value['id']), null, __('Realmente desea eliminar # %s?', $value['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -138,7 +138,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('Registrar Value'), array('controller' => 'values', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('Registrar Value'), array('controller' => 'concepts', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

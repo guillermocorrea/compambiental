@@ -301,7 +301,7 @@ Configure::write(
 );
 
 Configure::write(
-	'MsgTryAgain', 'Error, intente de nuevo'
+	'MsgTryAgain', 'Error registrando la información, por favor verifique el formulario e intentelo de nuevo.'
 );
 
 Configure::write(

@@ -1005,3 +1005,108 @@
 2012-08-06 01:29:58 Error: [MissingControllerException] Controller class InfractionsController could not be found.
 #0 C:\wamp\www\caketrap\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-08-06 13:55:05 Error: [MissingConnectionException] Database connection "SQLSTATE[42000] [1049] Unknown database 'compambiental'" is missing, or could not be created.
+#0 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(244): Mysql->connect()
+#1 C:\wamp\www\compambiental\lib\Cake\Model\ConnectionManager.php(101): DboSource->__construct(Array)
+#2 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(3354): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(1085): Model->setDataSource('default')
+#4 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(3380): Model->setSource('users')
+#5 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(1278): Model->getDataSource()
+#6 C:\wamp\www\compambiental\lib\Cake\View\Helper\FormHelper.php(191): Model->schema()
+#7 C:\wamp\www\compambiental\lib\Cake\View\Helper\FormHelper.php(444): FormHelper->_introspectModel('User', 'fields')
+#8 C:\wamp\www\compambiental\app\View\Elements\form_login.ctp(25): FormHelper->create('User', Array)
+#9 C:\wamp\www\compambiental\lib\Cake\View\View.php(908): include('C:\wamp\www\com...')
+#10 C:\wamp\www\compambiental\lib\Cake\View\View.php(872): View->_evaluate('C:\wamp\www\com...', Array)
+#11 C:\wamp\www\compambiental\lib\Cake\View\View.php(412): View->_render('C:\wamp\www\com...', Array)
+#12 C:\wamp\www\compambiental\app\View\Users\login.ctp(4): View->element('form_login')
+#13 C:\wamp\www\compambiental\lib\Cake\View\View.php(908): include('C:\wamp\www\com...')
+#14 C:\wamp\www\compambiental\lib\Cake\View\View.php(872): View->_evaluate('C:\wamp\www\com...', Array)
+#15 C:\wamp\www\compambiental\lib\Cake\View\View.php(463): View->_render('C:\wamp\www\com...')
+#16 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(962): View->render(NULL, NULL)
+#17 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#18 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#19 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#20 C:\wamp\www\compambiental\index.php(40): require('C:\wamp\www\com...')
+#21 {main}
+2012-08-06 14:07:50 Error: [MissingViewException] View file "C:\wamp\www\compambiental\app\View\Pages\display.ctp" is missing.
+#0 C:\wamp\www\compambiental\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(962): View->render(NULL, NULL)
+#2 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-08-06 14:08:46 Error: [MissingViewException] View file "C:\wamp\www\compambiental\app\View\Pages\display.ctp" is missing.
+#0 C:\wamp\www\compambiental\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(962): View->render(NULL, NULL)
+#2 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-08-06 14:09:16 Error: [MissingViewException] View file "C:\wamp\www\compambiental\app\View\Pages\display.ctp" is missing.
+#0 C:\wamp\www\compambiental\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(962): View->render(NULL, NULL)
+#2 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-08-06 14:09:39 Error: [MissingViewException] View file "C:\wamp\www\compambiental\app\View\Pages\display.ctp" is missing.
+#0 C:\wamp\www\compambiental\lib\Cake\View\View.php(460): View->_getViewFileName(NULL)
+#1 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(962): View->render(NULL, NULL)
+#2 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(110): Controller->render()
+#3 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#4 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2012-08-06 14:31:42 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'
+#0 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(436): PDOStatement->execute(Array)
+#1 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `id`, `C...', Array)
+#2 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(646): DboSource->execute('SELECT `id`, `C...', Array, Array)
+#3 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1299): DboSource->fetchAll('SELECT `id`, `C...', false)
+#4 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1167): DboSource->fetchAssociated(Object(Infraction), 'SELECT `id`, `C...', Array)
+#5 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1086): DboSource->queryAssociation(Object(Infraction), Object(AppModel), 'hasMany', 'Comparendo', Array, Array, true, Array, 0, Array)
+#6 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(2635): DboSource->read(Object(Infraction), Array)
+#7 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(1491): Model->find('first', Array)
+#8 C:\wamp\www\compambiental\app\Controller\InfractionsController.php(72): Model->read(NULL, '1')
+#9 [internal function]: InfractionsController->edit('1')
+#10 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(488): ReflectionMethod->invokeArgs(Object(InfractionsController), Array)
+#11 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#12 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InfractionsController), Object(CakeRequest), Object(CakeResponse))
+#13 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2012-08-06 14:34:48 Error: [MissingControllerException] Controller class ComparendosController could not be found.
+#0 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-08-06 14:34:51 Error: [MissingControllerException] Controller class ValuesController could not be found.
+#0 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-08-06 14:57:10 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'field list'
+#0 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(436): PDOStatement->execute(Array)
+#1 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `id`, `C...', Array)
+#2 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(646): DboSource->execute('SELECT `id`, `C...', Array, Array)
+#3 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1299): DboSource->fetchAll('SELECT `id`, `C...', false)
+#4 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1167): DboSource->fetchAssociated(Object(Infraction), 'SELECT `id`, `C...', Array)
+#5 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1086): DboSource->queryAssociation(Object(Infraction), Object(AppModel), 'hasMany', 'Comparendo', Array, Array, true, Array, 0, Array)
+#6 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(2635): DboSource->read(Object(Infraction), Array)
+#7 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(1491): Model->find('first', Array)
+#8 C:\wamp\www\compambiental\app\Controller\InfractionsController.php(32): Model->read(NULL, '1')
+#9 [internal function]: InfractionsController->view('1')
+#10 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(488): ReflectionMethod->invokeArgs(Object(InfractionsController), Array)
+#11 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#12 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(InfractionsController), Object(CakeRequest), Object(CakeResponse))
+#13 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2012-08-06 14:57:24 Error: [MissingControllerException] Controller class ConceptsController could not be found.
+#0 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2012-08-06 15:06:26 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '})) AS  `Infraction__full_name` FROM `compambiental`.`infractions` AS `Infractio' at line 1
+#0 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(436): PDOStatement->execute(Array)
+#1 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(403): DboSource->_execute('SELECT `Infract...', Array)
+#2 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(646): DboSource->execute('SELECT `Infract...', Array, Array)
+#3 C:\wamp\www\compambiental\lib\Cake\Model\Datasource\DboSource.php(1057): DboSource->fetchAll('SELECT `Infract...', false)
+#4 C:\wamp\www\compambiental\lib\Cake\Model\Model.php(2635): DboSource->read(Object(Infraction), Array)
+#5 C:\wamp\www\compambiental\app\Controller\ConceptsController.php(55): Model->find('list')
+#6 [internal function]: ConceptsController->add()
+#7 C:\wamp\www\compambiental\lib\Cake\Controller\Controller.php(488): ReflectionMethod->invokeArgs(Object(ConceptsController), Array)
+#8 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#9 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ConceptsController), Object(CakeRequest), Object(CakeResponse))
+#10 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}

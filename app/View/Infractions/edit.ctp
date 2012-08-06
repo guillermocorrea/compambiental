@@ -50,8 +50,8 @@
 		<li><?php echo $this->Html->link(__('Listar Infractions'), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('Listar Comparendos'), array('controller' => 'comparendos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Registrar Comparendo'), array('controller' => 'comparendos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'values', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Registrar Value'), array('controller' => 'values', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'concepts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Registrar Value'), array('controller' => 'concepts', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 
