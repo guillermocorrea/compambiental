@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.51, for Win64 (unknown)
+-- MySQL dump 10.13  Distrib 5.5.25a, for Win32 (x86)
 --
 -- Host: localhost    Database: compambiental
 -- ------------------------------------------------------
--- Server version	5.1.51-community
+-- Server version	5.5.25a
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -53,6 +53,36 @@ LOCK TABLES `comparendos` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `concepts`
+--
+
+DROP TABLE IF EXISTS `concepts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `concepts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `concepto` varchar(255) NOT NULL,
+  `valor` decimal(10,0) NOT NULL,
+  `tipo` varchar(2) NOT NULL,
+  `estado` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `infraction_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`infraction_id`),
+  KEY `fk_values_infractions` (`infraction_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `concepts`
+--
+
+LOCK TABLES `concepts` WRITE;
+/*!40000 ALTER TABLE `concepts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `concepts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `infractions`
 --
 
@@ -68,7 +98,7 @@ CREATE TABLE `infractions` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `CODIGO_INDEX` (`codigo`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,6 +107,7 @@ CREATE TABLE `infractions` (
 
 LOCK TABLES `infractions` WRITE;
 /*!40000 ALTER TABLE `infractions` DISABLE KEYS */;
+INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-06 14:31:36'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-06 14:51:30'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-06 14:54:54');
 /*!40000 ALTER TABLE `infractions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,36 +205,6 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'CORREA','GUTIERREZ','LUIS','GUILLERMO',1117497125,'ed342aaf76c0d14849fa71b33e946d2a7634212f','admin',1,'2012-08-05 22:19:43','2012-08-05 22:19:43','luis.guillermo.correa@hotmail.com'),(2,'DOE','','JHONE','',1,'c6db74f64e5bfbd177de8861673405368f49bc2f','usuario',1,'2012-08-05 23:47:21','2012-08-05 23:47:21','jhon@mail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `values`
---
-
-DROP TABLE IF EXISTS `values`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `concepts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `concepto` varchar(255) NOT NULL,
-  `valor` decimal(10,0) NOT NULL,
-  `tipo` varchar(2) NOT NULL,
-  `estado` tinyint(1) NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `infraction_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`,`infraction_id`),
-  KEY `fk_values_infractions` (`infraction_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `values`
---
-
-LOCK TABLES `values` WRITE;
-/*!40000 ALTER TABLE `values` DISABLE KEYS */;
-/*!40000 ALTER TABLE `values` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -214,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-05 20:08:28
+-- Dump completed on 2012-08-07  8:52:48
