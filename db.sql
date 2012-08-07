@@ -182,7 +182,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `values`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `values` (
+CREATE TABLE `concepts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `concepto` varchar(255) NOT NULL,
   `valor` decimal(10,0) NOT NULL,

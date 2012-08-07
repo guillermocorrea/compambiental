@@ -11,14 +11,26 @@
           <div class="nav-collapse">
             <ul class="nav">
 
-            <?php if(AuthComponent::user('rol') === Configure::read('admin') ) { ?>
-              <li class="dropdown <?php echo $this->request->controller == 'users' ? 'active' : ''; ?>">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <li><?php echo $this->Html->link('Usuarios','/users') ?></li>
-                      <li><?php echo $this->Html->link('Registrar','/users/register') ?></li>
-                    </ul>
-                  </li>
+            <?php if(AuthComponent::user('id')) { ?>
+                <li class="dropdown <?php echo $this->request->controller == 'infractions' ? 'active' : ''; ?>">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Infracciones<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><?php echo $this->Html->link('Infracciones','/infractions') ?></li>
+                        <li><?php echo $this->Html->link('Registrar','/infractions/add') ?></li>
+                      </ul>
+                </li>
+
+              <?php if(AuthComponent::user('rol') === Configure::read('admin') ) { ?>
+                <li class="dropdown <?php echo $this->request->controller == 'users' ? 'active' : ''; ?>">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><?php echo $this->Html->link('Usuarios','/users') ?></li>
+                        <li><?php echo $this->Html->link('Registrar','/users/register') ?></li>
+                      </ul>
+                </li>
+              <?php } ?>  
+                
+
             <?php } ?>  
             </ul>
             <ul class="nav pull-right">

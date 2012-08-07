@@ -38,7 +38,15 @@
       </footer>
 
     </div> <!-- /container -->
-    <?php echo $this->Html->script('scripts/require-jquery.js', array('data-main' => '/caketrap/js/scripts/main')) ?>
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ 	<?php echo $this->Html->script('lib/bootstrap.min.js') ?>    
+    <?php echo $this->Html->script('scripts/main.js') ?>
     <?php echo $this->element('sql_dump'); ?>
     <?php echo debug($this)?>
 </body>

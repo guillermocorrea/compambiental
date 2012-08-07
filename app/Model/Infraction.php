@@ -12,7 +12,46 @@ class Infraction extends AppModel {
  *
  * @var string
  */
-	public $displayField = 'codigo';
+
+	private $unidad = 'SMLV';
+	
+	public $format = 'id, codigo, %s';
+
+	public $sentencia = sprintf($format, 'SMLV');
+	
+
+
+	public $virtualFields = array("full_name"=>$sentencia);
+	
+	public $displayField = 'full_name';
+
+	//public $displayField = 'codigo';
+
+	public $validate = array(
+		'codigo' => array(
+        	'required' => array (
+	            'rule' => 'notEmpty',
+	            'message' => 'Campo requerido'
+			),
+			'unique' => array (
+				'rule' => 'isUnique',
+	            'message' => 'El codigo ya se encuentra registrado'
+			)
+        ),
+        'descripcion' => array(
+        	'required' => array (
+	            'rule' => 'notEmpty',
+	            'message' => 'Campo requerido'
+			)	 
+        ),
+        'estado' => array(
+		    'required' => array(
+		        'rule' => 'notEmpty',
+		        'required' => 'create',
+		        'message' => 'Campo requerido'
+			)
+		)
+    );    
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -35,8 +74,8 @@ class Infraction extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Value' => array(
-			'className' => 'Value',
+		'Concept' => array(
+			'className' => 'Concept',
 			'foreignKey' => 'infraction_id',
 			'dependent' => false,
 			'conditions' => '',
