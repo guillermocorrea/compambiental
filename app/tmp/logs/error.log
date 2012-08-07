@@ -1110,3 +1110,15 @@
 #9 C:\wamp\www\compambiental\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ConceptsController), Object(CakeRequest), Object(CakeResponse))
 #10 C:\wamp\www\compambiental\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #11 {main}
+2012-08-07 13:46:53 Error: [MissingTableException] Table concepts for model Concept was not found in datasource default.
+#0 C:\wamp\www\caketrap\lib\Cake\Model\Model.php(3380): Model->setSource('concepts')
+#1 C:\wamp\www\caketrap\lib\Cake\Model\Model.php(2635): Model->getDataSource()
+#2 C:\wamp\www\caketrap\lib\Cake\Controller\Component\PaginatorComponent.php(172): Model->find('all', Array)
+#3 C:\wamp\www\caketrap\lib\Cake\Controller\Controller.php(1087): PaginatorComponent->paginate(NULL, Array, Array)
+#4 C:\wamp\www\caketrap\app\Controller\ConceptsController.php(23): Controller->paginate()
+#5 [internal function]: ConceptsController->index()
+#6 C:\wamp\www\caketrap\lib\Cake\Controller\Controller.php(488): ReflectionMethod->invokeArgs(Object(ConceptsController), Array)
+#7 C:\wamp\www\caketrap\lib\Cake\Routing\Dispatcher.php(103): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\caketrap\lib\Cake\Routing\Dispatcher.php(85): Dispatcher->_invoke(Object(ConceptsController), Object(CakeRequest), Object(CakeResponse))
+#9 C:\wamp\www\caketrap\app\webroot\index.php(96): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
