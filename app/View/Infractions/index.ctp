@@ -1,10 +1,11 @@
 <div class="infractions index">
-	<h2><?php echo __('Infracciones');?></h2>
+  <div class="page-header">
+    <h1>Infracciones <small>Listado de los tipos de infracciones</small></h1>
+  </div>
 
-<table class="table table-striped">
+<table class="table table-bordered">
         <thead>
           <tr>
-			<th><?php echo $this->Paginator->sort('id');?></th>
 			<th><?php echo $this->Paginator->sort('codigo');?></th>
 			<th><?php echo $this->Paginator->sort('descripcion');?></th>
 			<th><?php echo $this->Paginator->sort('estado');?></th>
@@ -15,7 +16,6 @@
 	<?php
 	foreach ($infractions as $infraction): ?>
 	<tr>
-		<td><?php echo h($infraction['Infraction']['id']); ?>&nbsp;</td>
 		<td><?php echo h($infraction['Infraction']['codigo']); ?>&nbsp;</td>
 		<td><?php echo h($infraction['Infraction']['descripcion']); ?>&nbsp;</td>
 		<td><?php echo h($infraction['Infraction']['estado']); ?>&nbsp;</td>
@@ -34,13 +34,25 @@
 	));
 	?>	</p>
 
-	<div class="paging">
+	<div class="pagination">
+		<ul>
 	<?php
-		echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->prev(
+			'&laquo; ' . __('Ant'), 
+			array('escape'=>false, 'tag' => 'li'), 
+			null, 
+			array('class' => 'active', 'tag' => 'li'));
+
+		echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active'));
+
+		echo $this->Paginator->next(
+			__('Sig') . ' &raquo;', 
+			array('escape'=>false, 'tag' => 'li'), 
+			null, 
+			array('class' => 'active', 'tag' => 'li'));
 	?>
-	</div>
+		</ul>
+	</div> <!-- end pagination -->
 </div>
 <!--<div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>

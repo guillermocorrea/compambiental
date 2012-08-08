@@ -281,15 +281,22 @@ Cache::config('_cake_model_', array(
 * Application Configuration
 */
 Configure::write(
-	'TipoDocumento', array(0=>'CC', 1=>'NI')
+	'TipoPersona', array('CC'=>'Natural', 'NI'=>'Juridica')
 );
+Configure::write(
+	'TipoDocumento', array(1=>'CC', 2=>'NI')
+);
+Configure::write(
+	'TipoDocumentoArray', array('CC', 'NI')
+);
+
 
 Configure::write(
 	'Rols', array('usuario'=>'usuario', 'admin'=>'admin')
 );
 
 Configure::write(
-	'ValueUnit', 'SMLV'
+	'unidad', 'SMLV'
 );
 
 Configure::write(

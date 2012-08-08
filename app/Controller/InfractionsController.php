@@ -6,8 +6,7 @@ App::uses('AppController', 'Controller');
  * @property Infraction $Infraction
  */
 class InfractionsController extends AppController {
-
-
+	public $helpers = array('Form', 'Site');
 /**
  * index method
  *
@@ -16,8 +15,6 @@ class InfractionsController extends AppController {
 	public function index() {
 		$this->Infraction->recursive = 0;
 		$this->set('infractions', $this->paginate());
-		debug($this->Infraction->getSentencia());
-		//exit;
 	}
 
 /**
@@ -31,6 +28,7 @@ class InfractionsController extends AppController {
 		if (!$this->Infraction->exists()) {
 			throw new NotFoundException(__('Invalid infraction'));
 		}
+		$this->Infraction->contain('Concept');
 		$this->set('infraction', $this->Infraction->read(null, $id));
 	}
 
@@ -44,7 +42,7 @@ class InfractionsController extends AppController {
 			$this->Infraction->create();
 			if ($this->Infraction->save($this->request->data)) {
 				$this->setFlashSuccess('Infracción registrada correctamente');
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'view', $this->Infraction->id));
 			} else {
 				$this->setTryAgainFlash();
 			}
@@ -64,16 +62,51 @@ class InfractionsController extends AppController {
 			throw new NotFoundException(__('Invalid infraction'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->Infraction->save($this->request->data)) {
-				$this->setFlashSuccess('Infracción actualizada correctamente');
-				$this->redirect(array('action' => 'index'));
+			unset($this->request->data['save']);
+			if ($this->Infraction->saveAssociated($this->request->data)) {
+				$this->setFlashSuccess('Datos actualizados correctamente');
+				$this->redirect(array('action' => 'edit', $id));
 			} else {
 				$this->setTryAgainFlash();
 			}
 		} else {
+			$this->Infraction->contain(
+				array(
+					'Concept'=>array(
+						'fields'=>array('id','concepto','valor', 'tipo', 'estado'),
+						'order' => 'Concept.tipo ASC',
+						'conditions' => array('Concept.estado' => 1)
+						)
+					)
+				);
+			$last_value_id = $this->Infraction->Concept->find('first', 
+				array(
+					'contain'=>array(),
+					'fields'=>array('Concept.id'),
+					'order'=>'Concept.id DESC'
+				)
+			);
+			debug($last_value_id);
 			$this->request->data = $this->Infraction->read(null, $id);
 		}
 	}
+
+/*public function deleteconcept($concept_id, $infraction_id) {
+	$this->isAdmin();
+	if (!$this->request->is('post')) {
+		throw new MethodNotAllowedException();
+	}
+	$this->Infraction->Concept->id = $concept_id;
+	if (!$this->Infraction->Concept->exists()) {
+		throw new NotFoundException(__('Valor invalido'));
+	}
+	if ($this->Infraction->Concept->delete()) {
+		$this->setFlashSuccess('Valor eliminado correctamente');
+		$this->redirect(array('action' => 'edit', $infraction_id));
+	}
+	$this->setFlashFail('Valor no fue eliminado');
+	$this->redirect(array('action' => 'edit', $infraction_id));
+}*/
 
 /**
  * delete method

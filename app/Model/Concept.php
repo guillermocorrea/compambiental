@@ -11,9 +11,40 @@ class Concept extends AppModel {
  *
  * @var string
  */
+
+	public $actsAs = array('Containable');
+	
 	public $displayField = 'valor';
 
-	
+	public $validate = array(
+		'valor' => array(
+        	'required' => array (
+	            'rule' => 'notEmpty',
+	            'message' => 'Campo requerido'
+			),
+			'numeric' => array (
+	            'rule' => 'numeric',
+	            'message' => 'Ingrese un valor numérico'
+			)	 
+        ),
+        'tipo' => array(
+        	'required' => array (
+	            'rule' => 'notEmpty',
+	            'message' => 'Campo requerido'
+			),
+			'valid' => array (
+	            'rule' => array('inList', array('CC', 'NI')),
+	            'message' => 'Seleccione un valor válido'
+			)	 
+        ),
+        'estado' => array(
+		    'required' => array(
+		        'rule' => 'notEmpty',
+		        'required' => 'create',
+		        'message' => 'Campo requerido'
+			)
+		)
+    );    	
 	
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

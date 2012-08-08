@@ -374,9 +374,7 @@ class PaginatorHelper extends AppHelper {
 			unset($options['url']);
 		}
 		unset($options['convertKeys']);
-
 		$url = $this->url($url, true, $model);
-
 		$obj = isset($options['update']) ? $this->_ajaxHelperClass : 'Html';
 		return $this->{$obj}->link($title, $url, $options);
 	}
@@ -469,12 +467,11 @@ class PaginatorHelper extends AppHelper {
 			unset($options[$key]);
 		}
 		$url = array_merge(array('page' => $paging['page'] + ($which == 'Prev' ? $step * -1 : $step)), $url);
-
+		// if next / prev
 		if ($this->{$check}($model)) {
 			return $this->Html->tag($tag, $this->link($title, $url, array_merge($options, compact('escape'))), compact('class'));
 		} else {
-			unset($options['rel']);
-			return $this->Html->tag($tag, $title, array_merge($options, compact('escape', 'class')));
+			return $this->Html->tag('li', $this->link($title, array('action'=>'index','#'=>'first'), array('escape'=>false)), compact('class'));
 		}
 	}
 
@@ -656,6 +653,7 @@ class PaginatorHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/paginator.html#PaginatorHelper::numbers
  */
 	public function numbers($options = array()) {
+
 		if ($options === true) {
 			$options = array(
 				'before' => ' | ', 'after' => ' | ', 'first' => 'first', 'last' => 'last'
@@ -715,6 +713,7 @@ class PaginatorHelper extends AppHelper {
 				$currentClass .= ' ' . $class;
 			}
 			$out .= $this->Html->tag($tag, $params['page'], array('class' => $currentClass));
+
 			if ($i != $params['pageCount']) {
 				$out .= $separator;
 			}
@@ -741,13 +740,12 @@ class PaginatorHelper extends AppHelper {
 
 		} else {
 			$out .= $before;
-
 			for ($i = 1; $i <= $params['pageCount']; $i++) {
 				if ($i == $params['page']) {
 					if ($class) {
 						$currentClass .= ' ' . $class;
 					}
-					$out .= $this->Html->tag($tag, $i, array('class' => $currentClass));
+					$out .= $this->Html->tag($tag, $this->link($i, array('page' => $i)), array('class' => $currentClass));
 				} else {
 					$out .= $this->Html->tag($tag, $this->link($i, array('page' => $i), $options), compact('class'));
 				}

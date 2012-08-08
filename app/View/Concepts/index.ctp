@@ -1,7 +1,10 @@
 <div class="concepts index">
-	<h2><?php echo __('Concepts');?></h2>
+	<div class="page-header">
+    <h1><?php echo __('Concepts');?> <small>Help text</small></h1>
+  </div>
+	
 
-<table class="table table-striped">
+<table class="table table-bordered">
         <thead>
           <tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -27,7 +30,7 @@
 		<td><?php echo h($concept['Concept']['created']); ?>&nbsp;</td>
 		<td><?php echo h($concept['Concept']['modified']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($concept['Infraction']['codigo'], array('controller' => 'infractions', 'action' => 'view', $concept['Infraction']['id'])); ?>
+			<?php echo $this->Html->link($concept['Infraction']['id'], array('controller' => 'infractions', 'action' => 'view', $concept['Infraction']['id'])); ?>
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $concept['Concept']['id'])); ?>
@@ -45,14 +48,17 @@
 	));
 	?>	</p>
 
-	<div class="paging">
+	<div class="pagination">
+		<ul>
 	<?php
-		echo $this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));
+		echo $this->Paginator->prev('&laquo; ' . __('Ant'), array('escape'=>false, 'tag' => 'li'), null, array('class' => 'active', 'tag' => 'li'));
+		echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active'));
+		echo $this->Paginator->next(__('Sig') . ' &raquo;', array('escape'=>false, 'tag' => 'li'), null, array('class' => 'active', 'tag' => 'li'));
 	?>
-	</div>
+		</ul>
+	</div> <!-- end pagination -->
 </div>
+
 <div class="actions">
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>

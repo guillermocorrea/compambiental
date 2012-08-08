@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.25a, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.1.51, for Win64 (unknown)
 --
 -- Host: localhost    Database: compambiental
 -- ------------------------------------------------------
--- Server version 5.5.25a
+-- Server version	5.1.51-community
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -70,7 +70,7 @@ CREATE TABLE `concepts` (
   `infraction_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`infraction_id`),
   KEY `fk_values_infractions` (`infraction_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,6 +79,7 @@ CREATE TABLE `concepts` (
 
 LOCK TABLES `concepts` WRITE;
 /*!40000 ALTER TABLE `concepts` DISABLE KEYS */;
+INSERT INTO `concepts` VALUES (1,'','1','CC',1,'2012-08-07 21:47:56','2012-08-07 21:50:51',1),(2,'','5','NI',1,'2012-08-07 21:48:26','2012-08-07 21:48:26',1),(3,'','1','CC',0,'2012-08-07 21:51:25','2012-08-07 21:09:07',2),(4,'','5','NI',1,'2012-08-07 21:51:49','2012-08-07 21:17:13',2),(5,'Residuos sólidos no peligrosos','1','CC',1,'2012-08-07 21:52:33','2012-08-07 21:52:33',3);
 /*!40000 ALTER TABLE `concepts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +99,7 @@ CREATE TABLE `infractions` (
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `CODIGO_INDEX` (`codigo`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +108,7 @@ CREATE TABLE `infractions` (
 
 LOCK TABLES `infractions` WRITE;
 /*!40000 ALTER TABLE `infractions` DISABLE KEYS */;
-INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-06 14:31:36'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-06 14:51:30'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-06 14:54:54');
+INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-06 14:31:36'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-07 21:17:13'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-06 14:54:54'),(4,'04','afasfasfasfas',1,'2012-08-07 14:31:27','2012-08-07 14:31:27');
 /*!40000 ALTER TABLE `infractions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +203,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'CORREA','GUTIERREZ','LUIS','GUILLERMO',1117497125,'ed342aaf76c0d14849fa71b33e946d2a7634212f','admin',1,'2012-08-05 22:19:43','2012-08-05 22:19:43','luis.guillermo.correa@hotmail.com'),(2,'DOE','','JHONE','',1,'c6db74f64e5bfbd177de8861673405368f49bc2f','usuario',1,'2012-08-05 23:47:21','2012-08-05 23:47:21','jhon@mail.com');
+INSERT INTO `users` VALUES (1,'CORREA','GUTIERREZ','LUIS','GUILLERMO',1117497125,'ed342aaf76c0d14849fa71b33e946d2a7634212f','admin',1,'2012-08-05 22:19:43','2012-08-08 01:51:51','luis.guillermo.correa@hotmail.com'),(2,'DOE','','JHONE','',1,'c6db74f64e5bfbd177de8861673405368f49bc2f','usuario',1,'2012-08-05 23:47:21','2012-08-05 23:47:21','jhon@mail.com');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -215,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-07  8:52:48
+-- Dump completed on 2012-08-07 21:55:00

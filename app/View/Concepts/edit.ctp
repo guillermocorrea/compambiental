@@ -33,9 +33,9 @@
 	<?php
 		echo $this->Form->input('id', array('class' => 'span5'));
 		echo $this->Form->input('concepto', array('class' => 'span5'));
-		echo $this->Form->input('valor', array('class' => 'span5'));
+		echo $this->Form->input('valor', array('type'=>'text', 'class' => 'span5'));
 		echo $this->Form->input('tipo', array('class' => 'span5'));
-		echo $this->Form->input('estado', array('class' => 'span5'));
+		echo $this->Form->input('estado', array('label' => 'Activo'));
 		echo $this->Form->input('infraction_id', array('class' => 'span5'));
 	?>
 	

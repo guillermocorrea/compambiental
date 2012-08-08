@@ -17,9 +17,12 @@
  */
 ?>
 <div class="<?php echo $pluralVar;?> index">
-	<h2><?php echo "<?php echo __('{$pluralHumanName}');?>";?></h2>
+	<div class="page-header">
+    <h1><?php echo "<?php echo __('{$pluralHumanName}');?>";?> <small>Help text</small></h1>
+  </div>
+	
 
-<table class="table table-striped">
+<table class="table table-bordered">
         <thead>
           <tr>
 	<?php  foreach ($fields as $field):?>
@@ -68,16 +71,19 @@
 	?>";?>
 	</p>
 
-	<div class="paging">
+	<div class="pagination">
+		<ul>
 	<?php
 		echo "<?php\n";
-		echo "\t\techo \$this->Paginator->prev('< ' . __('anterior'), array(), null, array('class' => 'prev disabled'));\n";
-		echo "\t\techo \$this->Paginator->numbers(array('separator' => ''));\n";
-		echo "\t\techo \$this->Paginator->next(__('siguiente') . ' >', array(), null, array('class' => 'next disabled'));\n";
+		echo "\t\techo \$this->Paginator->prev('&laquo; ' . __('Ant'), array('escape'=>false, 'tag' => 'li'), null, array('class' => 'active', 'tag' => 'li'));\n";
+		echo "\t\techo \$this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentClass' => 'active'));\n";
+		echo "\t\techo \$this->Paginator->next(__('Sig') . ' &raquo;', array('escape'=>false, 'tag' => 'li'), null, array('class' => 'active', 'tag' => 'li'));\n";
 		echo "\t?>\n";
 	?>
-	</div>
+		</ul>
+	</div> <!-- end pagination -->
 </div>
+
 <div class="actions">
 	<h3><?php echo "<?php echo __('Opciones'); ?>"; ?></h3>
 	<ul>

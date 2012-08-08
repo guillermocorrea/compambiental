@@ -16,33 +16,61 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<div class="<?php echo $pluralVar;?> view">
-<h2><?php echo "<?php  echo __('{$singularHumanName}');?>";?></h2>
-	<dl>
-<?php
-foreach ($fields as $field) {
-	$isKey = false;
-	if (!empty($associations['belongsTo'])) {
-		foreach ($associations['belongsTo'] as $alias => $details) {
-			if ($field === $details['foreignKey']) {
-				$isKey = true;
-				echo "\t\t<dt><?php echo __('" . Inflector::humanize(Inflector::underscore($alias)) . "'); ?></dt>\n";
-				echo "\t\t<dd>\n\t\t\t<?php echo \$this->Html->link(\${$singularVar}['{$alias}']['{$details['displayField']}'], array('controller' => '{$details['controller']}', 'action' => 'view', \${$singularVar}['{$alias}']['{$details['primaryKey']}'])); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
-				break;
+<?php $controller = strtolower($pluralHumanName);?>
+<div class="row">
+	<div class="span8">
+
+		<ul class="breadcrumb">
+		  <li>
+		    <?php echo "<?php echo \$this->Html->link('Inicio', '/')?>\n"?> <span class="divider">/</span>
+		  </li>
+		  <li>
+		    <?php echo "<?php echo \$this->Html->link('{$pluralHumanName}', '/{$controller}')?>\n"?> <span class="divider">/</span>
+		  </li>
+		  <li class="active"><?php echo ucfirst($action) ?></li>
+		</ul>
+
+
+<table class="table table-bordered">
+        <thead>
+          <tr>
+	<?php  foreach ($fields as $field):?>
+		<th><?php echo "<?php echo \$this->Paginator->sort('{$field}');?>";?></th>
+	<?php endforeach;?>
+		  </tr>
+	    </thead>
+	    <tbody>
+	<?php
+	echo "<?php
+	foreach (\${$pluralVar} as \${$singularVar}): ?>\n";
+	echo "\t<tr>\n";
+		foreach ($fields as $field) {
+			$isKey = false;
+			if (!empty($associations['belongsTo'])) {
+				foreach ($associations['belongsTo'] as $alias => $details) {
+					if ($field === $details['foreignKey']) {
+						$isKey = true;
+						echo "\t\t<td>\n\t\t\t<?php echo \$this->Html->link(\${$singularVar}['{$alias}']['{$details['displayField']}'], array('controller' => '{$details['controller']}', 'action' => 'view', \${$singularVar}['{$alias}']['{$details['primaryKey']}'])); ?>\n\t\t</td>\n";
+						break;
+					}
+				}
+			}
+			if ($isKey !== true) {
+				echo "\t\t<td><?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>&nbsp;</td>\n";
 			}
 		}
-	}
-	if ($isKey !== true) {
-		echo "\t\t<dt><?php echo __('" . Inflector::humanize($field) . "'); ?></dt>\n";
-		echo "\t\t<dd>\n\t\t\t<?php echo h(\${$singularVar}['{$modelClass}']['{$field}']); ?>\n\t\t\t&nbsp;\n\t\t</dd>\n";
-	}
-}
-?>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo "<?php echo __('Opciones'); ?>"; ?></h3>
-	<ul>
+	echo "\t</tr>\n";
+
+	echo "<?php endforeach; ?>\n";
+	?>
+	</tbody>
+	</table>
+</div> <!-- end main -->
+
+<div class="span2 offset1">
+	<h3>Opciones</h3>
+
+	<ul class="nav nav-pills nav-stacked">
 <?php
 	echo "\t\t<li><?php echo \$this->Html->link(__('Editar " . $singularHumanName ."'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?> </li>\n";
 	echo "\t\t<li><?php echo \$this->Form->postLink(__('Eliminar " . $singularHumanName . "'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), null, __('Realmente desea eliminar # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?> </li>\n";
@@ -62,10 +90,14 @@ foreach ($fields as $field) {
 ?>
 	</ul>
 </div>
+
+</div><!-- end row -->
+
 <?php
 if (!empty($associations['hasOne'])) :
 	foreach ($associations['hasOne'] as $alias => $details): ?>
-	<div class="related">
+<div class="row">
+	<div class="span12">
 		<h3><?php echo "<?php echo __('Registros relacionados " . Inflector::humanize($details['controller']) . "');?>";?></h3>
 	<?php echo "<?php if (!empty(\${$singularVar}['{$alias}'])):?>\n";?>
 		<dl>
@@ -83,6 +115,7 @@ if (!empty($associations['hasOne'])) :
 			</ul>
 		</div>
 	</div>
+</div><!-- end related -->
 	<?php
 	endforeach;
 endif;
@@ -98,7 +131,8 @@ foreach ($relations as $alias => $details):
 	$otherSingularVar = Inflector::variable($alias);
 	$otherPluralHumanName = Inflector::humanize($details['controller']);
 	?>
-<div class="related">
+<div class="row">
+	<div class="span12">
 	<h3><?php echo "<?php echo __('Related " . $otherPluralHumanName . "');?>";?></h3>
 	<?php echo "<?php if (!empty(\${$singularVar}['{$alias}'])):?>\n";?>
 	<table cellpadding = "0" cellspacing = "0">
@@ -136,4 +170,5 @@ echo "\t<?php endforeach; ?>\n";
 		</ul>
 	</div>
 </div>
+</div> <!-- end related -->
 <?php endforeach;?>

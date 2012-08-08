@@ -7,10 +7,10 @@
  <span class="divider">/</span>
 		  </li>
 		  <li>
-		    <?php echo $this->Html->link('Infractions', '/infractions')?>
+		    <?php echo $this->Html->link('Infracciones', '/infractions')?>
  <span class="divider">/</span>
 		  </li>
-		  <li class="active">Edit</li>
+		  <li class="active">Editar</li>
 		</ul>
 	
 <?php echo $this->Form->create
@@ -31,14 +31,18 @@
 );?>
 
 	<?php
-		echo $this->Form->input('id', array('class' => 'span5'));
-		echo $this->Form->input('codigo', array('class' => 'span5'));
-		echo $this->Form->input('descripcion', array('class' => 'span5'));
-		echo $this->Form->input('estado', array('class' => 'span5'));
+		echo $this->Form->input('Infraction.id', array('class' => 'span5'));
+		echo $this->Form->input('Infraction.codigo', array('class' => 'span5'));
+		echo $this->Form->input('Infraction.descripcion', array('class' => 'span5'));
+		echo $this->Form->input('Infraction.estado', array('label' => 'Activo'));
+		
+		echo $this->Site->generateRelatedConceptsInputs($this->request->data['Concept']);
+		
+		//debug($this->request->data);
 	?>
 	
 		
-<?php echo $this->Form->end(array('label' => 'Registrar','class' => 'btn btn-primary'));?>
+<?php echo $this->Form->end(array('name'=>'save', 'label' => 'Guardar','class' => 'btn btn-primary'));?>
 
 </div> <!-- end main -->
 
@@ -46,8 +50,7 @@
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Eliminar'), array('action' => 'delete', $this->Form->value('Infraction.id')), null, __('Realmente desea eliminar # %s?', $this->Form->value('Infraction.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Infractions'), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('Listar Infracciones'), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('Listar Comparendos'), array('controller' => 'comparendos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Registrar Comparendo'), array('controller' => 'comparendos', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Values'), array('controller' => 'concepts', 'action' => 'index')); ?> </li>

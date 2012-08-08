@@ -12,27 +12,25 @@ class Infraction extends AppModel {
  *
  * @var string
  */
+	public $unidad = 'SMLV';
 
-public $unidad = 'SMLV';
-
-public $format = 'id, codigo, %s';
-//public $sentencia = sprintf($format, $num, $location);
-
-	/*private $unidad = 'SMLV';
-	
 	public $format = 'id, codigo, %s';
-
-	public $sentencia = sprintf('id, codigo, %s', 'SMLV');*/
 	
 	public function getSentencia() {
 		return sprintf($this->format, $this->unidad);
 	}
 
-	public $virtualFields = array("full_name"=>"CONCAT('id', 'codigo', 'SMLV')");
-	
-	public $displayField = 'full_name';
+	public $actsAs = array('Containable');
 
-	//public $displayField = 'codigo';
+	/*public $virtualFields = array("full_name"=>"CONCAT(id, ' ', codigo, ' ', 'SMLV')");
+	
+	public $displayField = 'full_name';*/
+
+	//public $virtualFields = array("full_name"=>"CONCAT(codigo, ' - ', SUBSTRING(descripcion, 1, 45))");
+	
+	//public $displayField = 'full_name';
+
+	public $displayField = 'codigo';
 
 	public $validate = array(
 		'codigo' => array(

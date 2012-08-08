@@ -1,6 +1,8 @@
 tmp/*
 app/tmp/*
 app/tmp
+app/tmp/cache
+app/tmp/**
 */tmp/cache/*
 */tmp/logs/*
 */tmp/sessions/*

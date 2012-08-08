@@ -15,8 +15,9 @@
                 <li class="dropdown <?php echo $this->request->controller == 'infractions' ? 'active' : ''; ?>">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Infracciones<b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><?php echo $this->Html->link('Infracciones','/infractions') ?></li>
-                        <li><?php echo $this->Html->link('Registrar','/infractions/add') ?></li>
+                        <li><?php echo $this->Html->link('<i class="icon-list-alt"></i> Infracciones','/infractions', array('escape'=>false)) ?></li>
+                        <li class="divider"></li>
+                        <li><?php echo $this->Html->link('<i class="icon-pencil"></i> Registrar','/infractions/add', array('escape'=>false)) ?></li>
                       </ul>
                 </li>
 
@@ -35,10 +36,12 @@
             </ul>
             <ul class="nav pull-right">
               <?php if(AuthComponent::user('id') ) { ?>
-                <li><span>
-                  <?php echo $this->Html->link(AuthComponent::user('primer_nombre') 
-                  . " " . AuthComponent::user('primer_apellido'),'/users/profile') ?></span></li>
-                <li><?php echo $this->Html->link('Salir','/users/logout') ?></li>
+                <li><div class="btn-group">
+          <a class="btn btn-primary" href="<?php echo $this->Html->url('/users/profile')?>"><i class="icon-user icon-white"></i> <?php echo AuthComponent::user('primer_nombre') 
+                  . " " . AuthComponent::user('primer_apellido')?></a>
+          
+        </div></li>
+                <li><?php echo $this->Html->link('Salir <i class=" icon-arrow-right icon-white"></i>','/users/logout', array('escape'=>false)) ?></li>
               <?php } else { ?>
                 <li><?php echo $this->Html->link('Login','/') ?></li>
               <?php } ?>
