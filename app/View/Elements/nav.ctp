@@ -12,6 +12,24 @@
             <ul class="nav">
 
             <?php if(AuthComponent::user('id')) { ?>
+                <li class="dropdown <?php echo $this->request->controller == 'comparendos' ? 'active' : ''; ?>">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Comparendos<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><?php echo $this->Html->link('<i class="icon-list-alt"></i> Comparendos','/comparendos', array('escape'=>false)) ?></li>
+                        <li class="divider"></li>
+                        <li><?php echo $this->Html->link('<i class="icon-pencil"></i> Registrar','/comparendos/add', array('escape'=>false)) ?></li>
+                      </ul>
+                </li>
+
+                <li class="dropdown <?php echo $this->request->controller == 'infractors' ? 'active' : ''; ?>">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Personas<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><?php echo $this->Html->link('<i class="icon-user"></i> Personas','/infractors', array('escape'=>false)) ?></li>
+                        <li class="divider"></li>
+                        <li><?php echo $this->Html->link('<i class="icon-pencil"></i> Registrar','/infractors/add', array('escape'=>false)) ?></li>
+                      </ul>
+                </li>
+
                 <li class="dropdown <?php echo $this->request->controller == 'infractions' ? 'active' : ''; ?>">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Infracciones<b class="caret"></b></a>
                       <ul class="dropdown-menu">

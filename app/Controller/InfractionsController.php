@@ -7,6 +7,16 @@ App::uses('AppController', 'Controller');
  */
 class InfractionsController extends AppController {
 	public $helpers = array('Form', 'Site');
+
+	public $paginate = array(
+        'limit' => 10,
+        'order' => array(
+            'Infraction.id' => 'asc'
+        ),
+        'conditions' => array(
+        	'Infraction.estado'=>1
+        )
+    );
 /**
  * index method
  *
@@ -65,6 +75,22 @@ class InfractionsController extends AppController {
 		//debug($this->request->data);
 	}
 
+	public function delete($id = null) {
+		//$this->isAdmin();
+		$this->Infraction->id = $id;
+		if (!$this->Infraction->exists()) {
+			throw new NotFoundException(__('Invalid infraction'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if($this->Infraction->saveField('estado', parent::$estadoInactivo)) {
+				$this->setFlashSuccess('Infracción eliminada correctamente');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->setTryAgainFlash();
+			}
+		}
+	}
+
 /**
  * edit method
  *
@@ -72,7 +98,7 @@ class InfractionsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-		$this->isAdmin();
+		//$this->isAdmin();
 		$this->Infraction->id = $id;
 		if (!$this->Infraction->exists()) {
 			throw new NotFoundException(__('Invalid infraction'));
@@ -86,23 +112,16 @@ class InfractionsController extends AppController {
 				$this->setFlashSuccess('Datos actualizados correctamente');
 				$this->redirect(array('action' => 'edit', $id));
 			} else {
-						$this->Infraction->contain(
-				array(
-					'Concept'=>array(
-						'fields'=>array('id','concepto','valor', 'tipo', 'estado'),
-						'order' => 'Concept.tipo ASC',
-						'conditions' => array('Concept.estado' => 1)
+				$this->Infraction->contain(
+					array(
+						'Concept'=>array(
+							'fields'=>array('id','concepto','valor', 'tipo', 'estado'),
+							'order' => 'Concept.tipo ASC',
+							'conditions' => array('Concept.estado' => 1)
 						)
 					)
 				);
-			/*$last_value_id = $this->Infraction->Concept->find('first', 
-				array(
-					'contain'=>array(),
-					'fields'=>array('Concept.id'),
-					'order'=>'Concept.id DESC'
-				)
-			);*/
-
+			
 			$this->request->data = $this->Infraction->read(null, $id);
 				$this->setTryAgainFlash();
 			}

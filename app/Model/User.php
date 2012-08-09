@@ -81,7 +81,7 @@ class User extends AppModel {
  *
  * @var array
  */
-	/*public $hasMany = array(
+	public $hasMany = array(
 		'Comparendo' => array(
 			'className' => 'Comparendo',
 			'foreignKey' => 'user_id',
@@ -95,6 +95,6 @@ class User extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-	);*/
+	);
 
 }

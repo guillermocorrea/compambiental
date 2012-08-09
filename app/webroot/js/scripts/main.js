@@ -1,8 +1,12 @@
 $(function() {
 	//InfractionEditForm
-	$("#InfractionEditForm").submit(function(){
+	/*$("#InfractionEditForm").submit(function(){
 		return validateRequiredFields();
-	});
+	});*/
+	/*$('.spinner').spinner({
+			step: 0.5,
+			numberFormat: "n"
+		});*/
 });
 
 /**

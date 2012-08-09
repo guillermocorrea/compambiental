@@ -31,4 +31,20 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+	public function beforeSave() {
+	    parent::beforeSave();
+		/**
+		* If logged in, set the model data created_by & modified_by fields to logged in user's ID
+		**/
+	  	if ($this->userId) {
+		    $this->set(array('modified_by' => $this->userId));
+		    /**
+		     * Add created_by field if creating a record
+		     **/
+		    if (!isset($this->data[$this->name]['id']) || !$this->id) {
+		      $this->set(array('created_by' => $this->userId));
+		    }
+		}
+	}
 }

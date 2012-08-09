@@ -55,7 +55,7 @@
 		echo "\t\t<td class=\"actions\">\n";
 		echo "\t\t\t<?php echo \$this->Html->link(__('Ver'), array('action' => 'view', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
 	 	echo "\t\t\t<?php echo \$this->Html->link(__('Editar'), array('action' => 'edit', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
-	 	echo "\t\t\t<?php echo \$this->Form->postLink(__('Eliminar'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), null, __('Realmente desea # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
+	 	echo "\t\t\t<?php echo \$this->Form->postLink(__('Eliminar'), array('action' => 'delete', \${$singularVar}['{$modelClass}']['{$primaryKey}']), null, __('Realmente desea eliminar # %s?', \${$singularVar}['{$modelClass}']['{$primaryKey}'])); ?>\n";
 		echo "\t\t</td>\n";
 	echo "\t</tr>\n";
 
@@ -66,7 +66,7 @@
 	<p>
 	<?php echo "<?php
 	echo \$this->Paginator->counter(array(
-	'format' => __('Pagina {:page} de {:pages}, mostrando {:current} de {:count} en total')
+	'format' => __('Página {:page} de {:pages}, mostrando {:current} de {:count} registro(s) en total')
 	));
 	?>";?>
 	</p>
@@ -84,9 +84,9 @@
 	</div> <!-- end pagination -->
 </div>
 
-<div class="actions">
+<div class="span2 offset1 well">
 	<h3><?php echo "<?php echo __('Opciones'); ?>"; ?></h3>
-	<ul>
+	<ul class="nav nav-pills">
 		<li><?php echo "<?php echo \$this->Html->link(__('Registrar " . $singularHumanName . "'), array('action' => 'add')); ?>";?></li>
 <?php
 	$done = array();

@@ -74,10 +74,9 @@ echo "<?php echo \$this->Form->create
 
 <div class="span2 offset1 well">
 	<h3><?php echo "<?php echo __('Opciones'); ?>"; ?></h3>
-	<ul>
+	<ul class="nav nav-pills">
 
 <?php if (strpos($action, 'add') === false): ?>
-		<li><?php echo "<?php echo \$this->Form->postLink(__('Eliminar'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), null, __('Realmente desea eliminar # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>";?></li>
 <?php endif;?>
 		<li><?php echo "<?php echo \$this->Html->link(__('Listar " . $pluralHumanName . "'), array('action' => 'index'));?>";?></li>
 <?php
@@ -93,6 +92,9 @@ echo "<?php echo \$this->Form->create
 		}
 ?>
 	</ul>
+
+	<?php echo "<?php echo \$this->Form->postLink(__('Eliminar'), array('action' => 'delete', \$this->Form->value('{$modelClass}.{$primaryKey}')), array('class'=>'btn btn-danger'), __('Realmente desea eliminar # %s?', \$this->Form->value('{$modelClass}.{$primaryKey}'))); ?>";?>
+
 </div>
 
 	

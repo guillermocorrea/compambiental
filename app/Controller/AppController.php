@@ -15,7 +15,6 @@
  *
  * @copyright     Copyright 2005-2011, Cake Software Foundation, Inc. (http://cakefoundation.org)
  * @link          http://cakephp.org CakePHP(tm) Project
- 
  * @package       app.Controller
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -36,6 +35,10 @@ class AppController extends Controller {
 	
 	public $components = array('Auth','Session');
 
+    public static $estadoActivo = 1;
+
+    public static $estadoInactivo = 0;
+
 	public function beforeFilter()
 	{
 		$this->Auth->authorize = array('Controller');
@@ -45,6 +48,12 @@ class AppController extends Controller {
 		$this->Auth->loginRedirect = array('action' => 'index', 'controller' => 'infractions');
 		$this->Auth->logoutRedirect = array('action' => 'home', 'controller' => 'pages');
 		$this->Auth->authError = 'Error acceso denegado';
+        /**
+         * If logged in, set the model property userId to logged in user's ID
+        **/
+        if ($userId = $this->Auth->user('id')) {
+            $this->{$this->modelClass}->userId = $userId;
+        }
 	}
 
 	public function isAuthorized($user) {

@@ -9,7 +9,7 @@
 
 	<title><?php echo Configure::read('AppName')?></title>
 	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="author" content="Luis Guillermo Correa">
 
 	<meta name="viewport" content="width=device-width">
 	<style>
@@ -19,6 +19,7 @@
 	}
 	</style>
 	<?php echo $this->Html->css('bootstrap.min') ?>
+	<?php echo $this->fetch('css'); ?>
 	<?php echo $this->Html->css('style') ?>
 </head>
 <body>
@@ -43,11 +44,11 @@
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
- 	<?php echo $this->Html->script('lib/bootstrap.min.js') ?>    
-    <?php echo $this->Html->script('scripts/main.js') ?>
-    <?php echo $this->element('sql_dump'); ?>
     <?php echo debug($this)?>
+    <?php echo $this->element('sql_dump'); ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ 	<?php echo $this->Html->script('lib/bootstrap.min.js') ?>
+ 	<?php echo $this->fetch('script'); ?>
+    <?php echo $this->Html->script('scripts/main.js') ?>
 </body>
 </html>

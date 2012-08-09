@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.51, for Win64 (unknown)
+-- MySQL dump 10.13  Distrib 5.5.25a, for Win32 (x86)
 --
 -- Host: localhost    Database: compambiental
 -- ------------------------------------------------------
--- Server version	5.1.51-community
+-- Server version	5.5.25a
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `comparendos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comparendos` (
-  ` id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
   `tipo_sancion` varchar(20) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `comparendos` (
   `infraction_id` int(11) NOT NULL,
   `infractor_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  PRIMARY KEY (` id`),
+  PRIMARY KEY (`id`),
   KEY `fk_comparendos_infractions1` (`infraction_id`),
   KEY `fk_comparendos_infractors1` (`infractor_id`),
   KEY `fk_comparendos_users1` (`user_id`)
@@ -79,7 +79,7 @@ CREATE TABLE `concepts` (
 
 LOCK TABLES `concepts` WRITE;
 /*!40000 ALTER TABLE `concepts` DISABLE KEYS */;
-INSERT INTO `concepts` VALUES (1,'','1','CC',1,'2012-08-07 21:47:56','2012-08-08 21:11:56',1),(2,'','5','NI',1,'2012-08-07 21:48:26','2012-08-08 21:11:56',1),(3,'','1','CC',0,'2012-08-07 21:51:25','2012-08-07 21:09:07',2),(4,'','5','NI',1,'2012-08-07 21:51:49','2012-08-07 21:17:13',2),(5,'Residuos sólidos no peligrosos','1','CC',1,'2012-08-07 21:52:33','2012-08-08 22:00:47',3),(9,'Residuos sólidos peligrosos','2','CC',1,'2012-08-08 21:11:56','2012-08-08 21:11:56',1),(10,'','6','CC',1,'2012-08-08 21:57:34','2012-08-08 22:01:24',4),(11,'','1','CC',1,'2012-08-08 21:57:51','2012-08-08 22:01:24',4);
+INSERT INTO `concepts` VALUES (1,'',1,'CC',1,'2012-08-07 21:47:56','2012-08-09 17:26:37',1),(2,'',0,'NI',1,'2012-08-07 21:48:26','2012-08-09 17:26:37',1),(3,'',1,'CC',0,'2012-08-07 21:51:25','2012-08-07 21:09:07',2),(4,'',5,'NI',1,'2012-08-07 21:51:49','2012-08-07 21:17:13',2),(5,'Residuos sï¿½lidos no peligrosos',1,'CC',1,'2012-08-07 21:52:33','2012-08-09 16:28:55',3),(9,'Residuos sï¿½lidos peligrosos',2,'CC',1,'2012-08-08 21:11:56','2012-08-09 17:26:37',1),(10,'',1,'CC',1,'2012-08-08 21:57:34','2012-08-09 17:14:37',4),(11,'',1,'CC',1,'2012-08-08 21:57:51','2012-08-09 17:14:37',4);
 /*!40000 ALTER TABLE `concepts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ CREATE TABLE `infractions` (
 
 LOCK TABLES `infractions` WRITE;
 /*!40000 ALTER TABLE `infractions` DISABLE KEYS */;
-INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-08 21:11:56'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-07 21:17:13'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-08 22:00:47'),(4,'04','afasfasfasfas',1,'2012-08-07 14:31:27','2012-08-08 22:01:24');
+INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-09 17:26:37'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-09 17:15:05'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-09 17:12:29'),(4,'04','afasfasfasfas',1,'2012-08-07 14:31:27','2012-08-09 17:14:42');
 /*!40000 ALTER TABLE `infractions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,9 +130,11 @@ CREATE TABLE `infractors` (
   `estado` tinyint(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `modified_by` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `numero_documento_UNIQUE` (`numero_documento`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,6 +143,7 @@ CREATE TABLE `infractors` (
 
 LOCK TABLES `infractors` WRITE;
 /*!40000 ALTER TABLE `infractors` DISABLE KEYS */;
+INSERT INTO `infractors` VALUES (1,'CC','28715999','JHON DOE','','','',1,'2012-08-09 20:00:02','2012-08-09 21:21:51',1,2);
 /*!40000 ALTER TABLE `infractors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,4 +219,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-08 22:03:22
+-- Dump completed on 2012-08-09 17:13:49

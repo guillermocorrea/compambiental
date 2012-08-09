@@ -40,24 +40,6 @@ class SiteHelper extends FormHelper {
 		$out = "";
 
 		foreach ($this->request->data['Concept'] as $item) {	
-			/*$out .= "<fieldset>
-			<legend>Valor Configurado ".($i+1)." </legend>
-			<div class='form-inline'>
-				<input name='data[Concept][".$i."][id]' type='hidden' value='".$item['id']."' id='Concept".$i."Id'>
-				<input name='data[Concept][".$i."][infraction_id]' type='hidden' value='".$item['infraction_id']."' id='Concept".$i."InfractionId'>
-				".$this->input('Concept.'.$i.'.tipo',array('type'=>'select', 'selected'=>$item['tipo'], 'options'=>Configure::read('TipoPersona'), 'label'=>false, 'class'=>'input-small', 'div'=>false))."
-				<div class='input-append'>
-				  <label for='Concept".$i."Valor'><strong>Valor</strong></label>
-				  <input name='data[Concept][".$i."][valor]' class='input-small' type='text' value='".$item['valor']."' id='Concept".$i."Valor'><span class='add-on'>SMLV</span>
-				 </div>
-			  <label for='Concept".$i."Concepto'>Concepto</label>
-			  <input name='data[Concept][".$i."][concepto]' class='input-large' type='text' value='".$item['concepto']."' id='Concept".$i."Concepto'>
-			  <div class='checkbox input-append'>
-			  ".$this->input('Concept.'.$i.'.estado',array('label' => 'Activo', 'div'=>false))."</div>";
-
-			$i++;
-			$out.="<div class='margin_bottom_20'></div></div>";
-			$out.="</fieldset>";	*/
 			$out .= $this->generateConceptInput($i, $item, null);
 			$i++;
 		}
@@ -84,11 +66,13 @@ class SiteHelper extends FormHelper {
 				".$this->input('Concept.'.$i.'.tipo',array('type'=>'select', 'selected'=>$item['tipo'], 'options'=>Configure::read('TipoPersona'), 'label'=>false, 'class'=>'input-small', 'div'=>false))."
 				<div class='input-append'>
 				  <label for='Concept".$i."Valor'><strong>Valor</strong></label>
-				  <input name='data[Concept][".$i."][valor]' class='input-small valid-required' type='text' value='".$item['valor']."' id='Concept".$i."Valor'><span class='add-on'>SMLV</span>
+				  <input name='data[Concept][".$i."][valor]' type='number' min='0' max='20' step='0.5'
+				  	class='input-small valid-required spinner' type='text' value='".$item['valor']."' id='Concept".$i."Valor'><span class='add-on'>SMLV</span>
 				 </div>
 			  <label for='Concept".$i."Concepto'>Concepto</label>
 			  <input name='data[Concept][".$i."][concepto]' class='input-large' type='text' value='".$item['concepto']."' id='Concept".$i."Concepto'>
 			  ";
+		// if new
 		if ($infraction_id == null) {
 			$out .="<div class='checkbox input-append'>
 			  "
