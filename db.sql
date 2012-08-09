@@ -70,7 +70,7 @@ CREATE TABLE `concepts` (
   `infraction_id` int(11) NOT NULL,
   PRIMARY KEY (`id`,`infraction_id`),
   KEY `fk_values_infractions` (`infraction_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -79,7 +79,7 @@ CREATE TABLE `concepts` (
 
 LOCK TABLES `concepts` WRITE;
 /*!40000 ALTER TABLE `concepts` DISABLE KEYS */;
-INSERT INTO `concepts` VALUES (1,'','1','CC',1,'2012-08-07 21:47:56','2012-08-07 21:50:51',1),(2,'','5','NI',1,'2012-08-07 21:48:26','2012-08-07 21:48:26',1),(3,'','1','CC',0,'2012-08-07 21:51:25','2012-08-07 21:09:07',2),(4,'','5','NI',1,'2012-08-07 21:51:49','2012-08-07 21:17:13',2),(5,'Residuos sólidos no peligrosos','1','CC',1,'2012-08-07 21:52:33','2012-08-07 21:52:33',3);
+INSERT INTO `concepts` VALUES (1,'','1','CC',1,'2012-08-07 21:47:56','2012-08-08 21:11:56',1),(2,'','5','NI',1,'2012-08-07 21:48:26','2012-08-08 21:11:56',1),(3,'','1','CC',0,'2012-08-07 21:51:25','2012-08-07 21:09:07',2),(4,'','5','NI',1,'2012-08-07 21:51:49','2012-08-07 21:17:13',2),(5,'Residuos sólidos no peligrosos','1','CC',1,'2012-08-07 21:52:33','2012-08-08 22:00:47',3),(9,'Residuos sólidos peligrosos','2','CC',1,'2012-08-08 21:11:56','2012-08-08 21:11:56',1),(10,'','6','CC',1,'2012-08-08 21:57:34','2012-08-08 22:01:24',4),(11,'','1','CC',1,'2012-08-08 21:57:51','2012-08-08 22:01:24',4);
 /*!40000 ALTER TABLE `concepts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,7 +108,7 @@ CREATE TABLE `infractions` (
 
 LOCK TABLES `infractions` WRITE;
 /*!40000 ALTER TABLE `infractions` DISABLE KEYS */;
-INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-06 14:31:36'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-07 21:17:13'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-06 14:54:54'),(4,'04','afasfasfasfas',1,'2012-08-07 14:31:27','2012-08-07 14:31:27');
+INSERT INTO `infractions` VALUES (1,'01','Presentar para la recolecciÃ³n, los residuos sÃ³lidos en horarios no autorizados por la empresa prestadora del servicio.',1,'2012-08-06 14:31:36','2012-08-08 21:11:56'),(2,'02','No usar los recipientes o demÃ¡s elementos dispuestos para depositar los residuos sÃ³lidos, de acuerdo con los fines establecidos para cada uno de ellos.',1,'2012-08-06 14:51:30','2012-08-07 21:17:13'),(3,'03','Arrojar residuos sÃ³lidos o escombros en espacio pÃºblico en sitios no autorizados.',1,'2012-08-06 14:54:54','2012-08-08 22:00:47'),(4,'04','afasfasfasfas',1,'2012-08-07 14:31:27','2012-08-08 22:01:24');
 /*!40000 ALTER TABLE `infractions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-07 21:55:00
+-- Dump completed on 2012-08-08 22:03:22

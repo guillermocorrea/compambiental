@@ -20,7 +20,6 @@
 		<td><?php echo h($infraction['Infraction']['descripcion']); ?>&nbsp;</td>
 		<td><?php echo h($infraction['Infraction']['estado']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('Ver'), array('action' => 'view', $infraction['Infraction']['id'])); ?>
 			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $infraction['Infraction']['id'])); ?>
 		</td>
 	</tr>

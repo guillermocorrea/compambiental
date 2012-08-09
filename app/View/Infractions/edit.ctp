@@ -31,14 +31,15 @@
 );?>
 
 	<?php
-		echo $this->Form->input('Infraction.id', array('class' => 'span5'));
-		echo $this->Form->input('Infraction.codigo', array('class' => 'span5'));
-		echo $this->Form->input('Infraction.descripcion', array('class' => 'span5'));
-		echo $this->Form->input('Infraction.estado', array('label' => 'Activo'));
+	echo $this->Form->input('Infraction.id', array('class' => 'span5'));
+	echo $this->Form->input('Infraction.codigo', array('class' => 'span5'));
+	echo $this->Form->input('Infraction.descripcion', array('class' => 'span5'));
+	echo $this->Form->input('Infraction.estado', array('label' => 'Activo'));
 		
-		echo $this->Site->generateRelatedConceptsInputs($this->request->data['Concept']);
+	echo $this->Site->generateRelatedConceptsInputs($this->request->data['Concept']);
+		//debug($this->request->data['Infraction']);
+	echo $this->Site->generateConceptInput(count($this->request->data['Concept']), null, $this->request->data['Infraction']['id']);
 		
-		//debug($this->request->data);
 	?>
 	
 		

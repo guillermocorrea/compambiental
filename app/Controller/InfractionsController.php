@@ -49,6 +49,22 @@ class InfractionsController extends AppController {
 		}
 	}
 
+	/**
+	* Clean Concept data for edit action
+	*/
+	private function __cleanConceptData() {
+		//debug($this->request->data);
+		$count_concepts = count($this->request->data['Concept']);
+		if (empty($this->request->data['Concept'][$count_concepts-1]['valor'])) {
+			unset($this->request->data['Concept'][$count_concepts-1]);
+		//	debug($this->request->data);
+			if (empty($this->request->data['Concept'])) {
+				unset($this->request->data['Concept']);
+			}
+		}
+		//debug($this->request->data);
+	}
+
 /**
  * edit method
  *
@@ -63,10 +79,31 @@ class InfractionsController extends AppController {
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
 			unset($this->request->data['save']);
+			$this->__cleanConceptData();
+			debug($this->request->data);
+			//exit;
 			if ($this->Infraction->saveAssociated($this->request->data)) {
 				$this->setFlashSuccess('Datos actualizados correctamente');
 				$this->redirect(array('action' => 'edit', $id));
 			} else {
+						$this->Infraction->contain(
+				array(
+					'Concept'=>array(
+						'fields'=>array('id','concepto','valor', 'tipo', 'estado'),
+						'order' => 'Concept.tipo ASC',
+						'conditions' => array('Concept.estado' => 1)
+						)
+					)
+				);
+			/*$last_value_id = $this->Infraction->Concept->find('first', 
+				array(
+					'contain'=>array(),
+					'fields'=>array('Concept.id'),
+					'order'=>'Concept.id DESC'
+				)
+			);*/
+
+			$this->request->data = $this->Infraction->read(null, $id);
 				$this->setTryAgainFlash();
 			}
 		} else {
@@ -79,14 +116,14 @@ class InfractionsController extends AppController {
 						)
 					)
 				);
-			$last_value_id = $this->Infraction->Concept->find('first', 
+			/*$last_value_id = $this->Infraction->Concept->find('first', 
 				array(
 					'contain'=>array(),
 					'fields'=>array('Concept.id'),
 					'order'=>'Concept.id DESC'
 				)
-			);
-			debug($last_value_id);
+			);*/
+
 			$this->request->data = $this->Infraction->read(null, $id);
 		}
 	}
