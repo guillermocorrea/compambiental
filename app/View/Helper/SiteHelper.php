@@ -65,7 +65,7 @@ class SiteHelper extends FormHelper {
 				<input name='data[Concept][".$i."][infraction_id]' type='hidden' value='".$item['infraction_id']."' id='Concept".$i."InfractionId'>
 				".$this->input('Concept.'.$i.'.tipo',array('type'=>'select', 'selected'=>$item['tipo'], 'options'=>Configure::read('TipoPersona'), 'label'=>false, 'class'=>'input-small', 'div'=>false))."
 				<div class='input-append'>
-				  <label for='Concept".$i."Valor'><strong>Valor</strong></label>
+				  <label for='Concept".$i."Valor'>Valor*</label>
 				  <input name='data[Concept][".$i."][valor]' type='number' min='0' max='20' step='0.5'
 				  	class='input-small valid-required spinner' type='text' value='".$item['valor']."' id='Concept".$i."Valor'><span class='add-on'>SMLV</span>
 				 </div>

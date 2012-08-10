@@ -31,7 +31,7 @@
 );?>
 
 	<?php
-		echo $this->Form->input('tipo_documento',array('type'=>'select', 'options'=>Configure::read('TipoPersona'), 'class'=>'span5'));
+		echo $this->Form->input('tipo_documento',array('type'=>'select', 'label'=>'Tipo de Persona', 'options'=>Configure::read('TipoPersona'), 'class'=>'span5'));
 		//echo $this->Form->input('tipo_documento', array('class' => 'span5'));
 		echo $this->Form->input('numero_documento', array('class' => 'span5'));
 		echo $this->Form->input('nombre_razon_social', array('class' => 'span5'));

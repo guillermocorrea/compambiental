@@ -312,5 +312,5 @@ Configure::write(
 );
 
 Configure::write(
-	'AppName', 'CompaAmbiental'
+	'AppName', 'ComparendoAmbiental'
 );

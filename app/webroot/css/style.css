@@ -17,8 +17,10 @@
 .margin_bottom_20{
 	margin-bottom: 20px;
 }
-.required label{
-	font-weight: bold;
+.required label:after{
+	/*font-weight: bold;*/
+	content: "*";
+	color:#000;
 }
 /*.required.error > input[type='text'] {
 	border-color: #B94A48;
@@ -27,3 +29,34 @@
 input,input:focus,input[type='submit'],input[type='submit']:focus,button,button:focus{
 	outline: none; 
 }
+
+.navbar .brand {
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .3), 0 0 30px rgba(255, 255, 255, .325);
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.bg-comparendo {
+	/*background: url(bg/furley_bg.png);*/
+}
+
+/* Inline form */
+.inline-block-form div{
+	display: inline-block;
+	margin-right: 5px;
+}
+legend, label {
+	font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif";
+}
+legend {
+	border-color: #ccc;
+}
+label {
+	color: #000;
+}
+fieldset {
+	margin-bottom: 15px;
+}
+

@@ -1,4 +1,6 @@
 $(function() {
+	$(".masked-date").mask("9999/99/99");
+
 	//InfractionEditForm
 	/*$("#InfractionEditForm").submit(function(){
 		return validateRequiredFields();
