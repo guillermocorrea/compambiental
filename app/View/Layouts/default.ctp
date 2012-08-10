@@ -47,7 +47,8 @@
     <?php echo debug($this)?>
     <?php echo $this->element('sql_dump'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
- 	<?php echo $this->Html->script('lib/bootstrap.min.js') ?>
+    <?php //echo $this->Html->script('scripts/jquery.js') ?>
+ 	<?php echo $this->Html->script('scripts/bootstrap.js') ?>
  	<?php echo $this->fetch('script'); ?>
     <?php echo $this->Html->script('scripts/main.js') ?>
 </body>

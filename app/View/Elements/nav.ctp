@@ -53,6 +53,9 @@
             <?php } ?>  
             </ul>
             <ul class="nav pull-right">
+              <li>
+                  <a id="loading" href="#"><?php echo $this->Html->image('ajax-loader.gif', array('alt' => 'Cargando...'))?></a>
+              </li>
               <?php if(AuthComponent::user('id') ) { ?>
                 <li><div class="btn-group">
           <a class="btn btn-primary" href="<?php echo $this->Html->url('/users/profile')?>"><i class="icon-user icon-white"></i> <?php echo AuthComponent::user('primer_nombre') 

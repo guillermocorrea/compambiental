@@ -45,6 +45,8 @@ class ComparendosController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->Comparendo->create();
+			debug($this->request->data);
+			exit;
 			if ($this->Comparendo->save($this->request->data)) {
 				$this->setFlashSuccess('comparendo registrado correctamente');
 				$this->redirect(array('action' => 'index'));
@@ -52,10 +54,10 @@ class ComparendosController extends AppController {
 				$this->setTryAgainFlash();
 			}
 		}
-		$concepts = $this->Comparendo->Concept->find('list');
+		$infractions = $this->Comparendo->Infraction->find('list');
 		$infractors = $this->Comparendo->Infractor->find('list');
 		$users = $this->Comparendo->User->find('list');
-		$this->set(compact('concepts', 'infractors', 'users'));
+		$this->set(compact('infractions', 'infractors', 'users'));
 	}
 
 /**
@@ -79,10 +81,10 @@ class ComparendosController extends AppController {
 		} else {
 			$this->request->data = $this->Comparendo->read(null, $id);
 		}
-		$concepts = $this->Comparendo->Concept->find('list');
+		$infractions = $this->Comparendo->Infraction->find('list');
 		$infractors = $this->Comparendo->Infractor->find('list');
 		$users = $this->Comparendo->User->find('list');
-		$this->set(compact('concepts', 'infractors', 'users'));
+		$this->set(compact('infractions', 'infractors', 'users'));
 	}
 
 /**
@@ -91,7 +93,7 @@ class ComparendosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+/*	public function delete($id = null) {
 		if (!$this->request->is('post')) {
 			throw new MethodNotAllowedException();
 		}
@@ -105,5 +107,5 @@ class ComparendosController extends AppController {
 		}
 		$this->setFlashFail('Comparendo no fue eliminado');
 		$this->redirect(array('action' => 'index'));
-	}
+	}*/
 }

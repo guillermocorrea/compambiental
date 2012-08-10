@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Comparendo Model
  *
- * @property Concept $Concept
+ * @property Infraction $Infraction
  * @property Infractor $Infractor
  * @property User $User
  */
@@ -17,15 +17,6 @@ class Comparendo extends AppModel {
 
 	public $actsAs = array('Containable');
 
-	/**
-	* Get infraction type for a person
-	*/
-	public getTipoInfraccion($tipo_documento = null, $numero_documento = null) {
-		
-	}
-
-	
-
 	public $validate = array(
 		'fecha' => array(
         	'required' => array (
@@ -35,7 +26,7 @@ class Comparendo extends AppModel {
 			'numeric' => array (
 	            'rule'       => array('date', 'ymd'),
 		        'message'    => 'Ingrese una fecha válida en formato AAAA-MM-DD format.',
-			)
+			)	 
         ),
 		'hora' => array(
         	'required' => array (
@@ -62,9 +53,9 @@ class Comparendo extends AppModel {
 			'valid' => array (
 	            'rule' => array('inList', array('CC', 'NI')),
 	            'message' => 'Seleccione un valor válido'
-			)
+			)	 
         )
-    );
+    );    
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
@@ -74,9 +65,9 @@ class Comparendo extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Concept' => array(
-			'className' => 'Concept',
-			'foreignKey' => 'concept_id',
+		'Infraction' => array(
+			'className' => 'Infraction',
+			'foreignKey' => 'infraction_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

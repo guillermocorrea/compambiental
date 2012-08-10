@@ -33,11 +33,11 @@ CREATE TABLE `comparendos` (
   `estado` varchar(1) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
-  `infraction_id` int(11) NOT NULL,
+  `concept_id` int(11) NOT NULL,
   `infractor_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_comparendos_infractions1` (`infraction_id`),
+  KEY `fk_comparendos_concepts1` (`concept_id`),
   KEY `fk_comparendos_infractors1` (`infractor_id`),
   KEY `fk_comparendos_users1` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -219,4 +219,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-09 17:13:49
+-- Dump completed on 2012-08-10 17:17:01

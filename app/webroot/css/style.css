@@ -60,3 +60,6 @@ fieldset {
 	margin-bottom: 15px;
 }
 
+#loading {
+	display: none;
+}

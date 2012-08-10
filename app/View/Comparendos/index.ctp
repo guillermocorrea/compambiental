@@ -17,7 +17,7 @@
 			<th><?php echo $this->Paginator->sort('estado');?></th>
 			<th><?php echo $this->Paginator->sort('created');?></th>
 			<th><?php echo $this->Paginator->sort('modified');?></th>
-			<th><?php echo $this->Paginator->sort('infraction_id');?></th>
+			<th><?php echo $this->Paginator->sort('concept_id');?></th>
 			<th><?php echo $this->Paginator->sort('infractor_id');?></th>
 			<th><?php echo $this->Paginator->sort('user_id');?></th>
 			<th class="actions"><?php echo __('Opciones');?></th>
@@ -38,7 +38,7 @@
 		<td><?php echo h($comparendo['Comparendo']['created']); ?>&nbsp;</td>
 		<td><?php echo h($comparendo['Comparendo']['modified']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($comparendo['Infraction']['codigo'], array('controller' => 'infractions', 'action' => 'view', $comparendo['Infraction']['id'])); ?>
+			<?php echo $this->Html->link($comparendo['Concept']['valor'], array('controller' => 'concepts', 'action' => 'view', $comparendo['Concept']['id'])); ?>
 		</td>
 		<td>
 			<?php echo $this->Html->link($comparendo['Infractor']['full_name'], array('controller' => 'infractors', 'action' => 'view', $comparendo['Infractor']['id'])); ?>
@@ -77,8 +77,8 @@
 	<h3><?php echo __('Opciones'); ?></h3>
 	<ul class="nav nav-pills">
 		<li><?php echo $this->Html->link(__('Registrar Comparendo'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('Listar Infractions'), array('controller' => 'infractions', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Registrar Infraction'), array('controller' => 'infractions', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Concepts'), array('controller' => 'concepts', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Registrar Concept'), array('controller' => 'concepts', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Infractors'), array('controller' => 'infractors', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Registrar Infractor'), array('controller' => 'infractors', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>

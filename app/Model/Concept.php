@@ -13,8 +13,13 @@ class Concept extends AppModel {
  */
 
 	public $actsAs = array('Containable');
+
+	public $virtualFields = array("display_name"=>"CONCAT(Concept.concepto, ' ', 
+		Concept.valor, 'SMLV')");
 	
-	public $displayField = 'valor';
+	public $displayField = 'display_name';
+	
+	//public $displayField = 'valor';
 
 	public $validate = array(
 		'valor' => array(

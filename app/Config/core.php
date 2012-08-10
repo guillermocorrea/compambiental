@@ -290,6 +290,12 @@ Configure::write(
 	'TipoDocumentoArray', array('CC', 'NI')
 );
 
+Configure::write(
+	'TipoInfraccion', array(
+		'Pedagógica',
+		'Monetaria'
+	)
+);
 
 Configure::write(
 	'Rols', array('usuario'=>'usuario', 'admin'=>'admin')

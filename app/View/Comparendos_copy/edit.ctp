@@ -39,7 +39,7 @@
 		echo $this->Form->input('valor', array('class' => 'span5'));
 		echo $this->Form->input('observaciones', array('class' => 'span5'));
 		echo $this->Form->input('estado', array('class' => 'span5'));
-		echo $this->Form->input('concept_id', array('class' => 'span5'));
+		echo $this->Form->input('infraction_id', array('class' => 'span5'));
 		echo $this->Form->input('infractor_id', array('class' => 'span5'));
 		echo $this->Form->input('user_id', array('class' => 'span5'));
 	?>
@@ -54,8 +54,8 @@
 	<ul class="nav nav-pills">
 
 		<li><?php echo $this->Html->link(__('Listar Comparendos'), array('action' => 'index'));?></li>
-		<li><?php echo $this->Html->link(__('Listar Concepts'), array('controller' => 'concepts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('Registrar Concept'), array('controller' => 'concepts', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Infractions'), array('controller' => 'infractions', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Registrar Infraction'), array('controller' => 'infractions', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Infractors'), array('controller' => 'infractors', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Registrar Infractor'), array('controller' => 'infractors', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('Listar Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>

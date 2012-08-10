@@ -22,6 +22,30 @@ class InfractorsController extends AppController {
 		parent::beforeFilter();
 	}
 
+	public function get_infractors(){
+      	$this->autoRender = false;
+        if ($this->request->is('ajax')) {        	
+        	CakeLog::write('ajax', $this->request->data['numero_documento'] . " tipo_persona: " . $this->request->data['tipo_persona']);
+            $results = $this->Infractor->find('all', array(
+                'conditions'=>array(
+                	'Infractor.numero_documento' => $this->request->data['numero_documento'],
+                	'Infractor.tipo_documento' => $this->request->data['tipo_persona']
+                ),
+                'fields' => array('id','nombre_razon_social','telefono','direccion','email'),
+                'recursive'=>-1, 
+            ));
+            
+            return json_encode($results);
+        }
+        return;
+    }
+
+    public function test() 
+    {
+    	debug($this->Infractor->getInfractorId('CC', 28715999));
+    	exit;
+    }
+
 /**
  * index method
  *

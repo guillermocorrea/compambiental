@@ -1,4 +1,4 @@
-<?php $this->Html->script('lib/jquery.maskedinput-1.3.min', array('inline'=>false));?>
+<?php //$this->Html->script('lib/bootstrap-typeahead', array('inline'=>false));?>
 <div class="row">
 	<div class="span8">
 
@@ -24,14 +24,14 @@
 					'controller' => 'comparendos',
 					'action'	 => 'add'
 				),
-				'class'			=> 'well bg-comparendo',
+				'class'			=> 'well',
 				'inputDefaults' => array
 				(
 				)
 	)
 );?>
-
-<div class="inline-block-form">
+	
+	<div class="inline-block-form">
 	<?php
 		echo $this->Form->input('fecha', array('class' => 'span2'));
 		echo $this->Form->input('hora', array('class' => 'span2'));
@@ -40,40 +40,81 @@
 ?>
 </div>
 		<fieldset>
-			<legend>Datos del infractor</legend>
+			<legend>Datos del Infractor</legend>
 			<div class="inline-block-form">
 				<div>
 <?php
+
 		// Datos del infractor
 		//echo $this->Form->input('Infractor.tipo_documento', array('class' => 'span1'));
-		echo $this->Form->input('Infractor.tipo_documento',array('type'=>'select', 'label'=>'Tipo de Persona', 'options'=>Configure::read('TipoPersona'), 'class'=>'span2'));
-		echo $this->Form->input('Infractor.numero_documento', array('class' => 'span2'));
-		echo $this->Form->input('Infractor.nombre_razon_social', array('class' => 'span2', 'label'=>'Nombre'));
+		echo $this->Form->input('Infractor.tipo_documento',array('id'=>'InfractorTipoDocumento', 'type'=>'select', 'label'=>'Tipo de Persona', 'options'=>Configure::read('TipoPersona'), 'class'=>'span2'));
+
+echo $this->Form->input('Infractor.infractor_id',array('type' => 'hidden','id'=>'InfractorId',
+	'value'=>0,'class'=>'hide','label'=>false));
+//echo $this->Form->input('numero_documento', array('id'=>'InfractorNumeroDocumento', 'label'=>'Número de Documento', 
+//	'class'=>'span2','type' => 'text', 'error' => false,'data-provide'=>'typeahead', 'data-source'=>'[]',
+//	));
+
+
+		echo $this->Form->input('Infractor.numero_documento', array('id'=>'InfractorNumeroDocumento', 'label'=>'Número de Documento', 'class' => 'span2'));
+		echo $this->Form->input('Infractor.nombre_razon_social', array('id'=>'InfractorNombre', 'class' => 'span2', 'label'=>'Nombre'));
 
 ?>
 				</div>
 				<div>
 <?php
 		// Datos del infractor
-		//echo $this->Form->input('Infractor.tipo_documento', array('class' => 'span1'));
+		// echo $this->Form->input('Infractor.tipo_documento', array('class' => 'span1'));
 		echo $this->Form->input('Infractor.email',array('class'=>'span2'));
-		echo $this->Form->input('Infractor.telefono', array('class' => 'span2', 'label'=>'Teléfono'));
-		echo $this->Form->input('Infractor.direccion', array('class' => 'span2', 'label'=>'Dirección'));
+		echo $this->Form->input('Infractor.telefono', array('label'=>'Teléfono', 'class' => 'span2', 'label'=>'Teléfono'));
+		echo $this->Form->input('Infractor.direccion', array('label'=>'Dirección', 'class' => 'span2', 'label'=>'Dirección'));
 
 ?>
 				</div>
 			</div>
 			<div id="infractor_id"></div>
 		</fieldset>	
+
+		<fieldset>
+			<legend>Datos de la Infracción</legend>
+<?php
+		echo $this->Form->input('tipo_sancion', array('label'=>'Tipo de Sanción', 'class' => 'span5 disabled', 'disabled'));
+?>
+	<div class="inline-block-form">
+<?php
+		echo $this->Form->input('codigo_infraccion', array('label'=>'Código', 'class' => 'span2'));
+		echo $this->Form->input('concept_id', array('label'=>'Valor', 'class' => 'span3'));
+?>
+	</div>
+
+	</fieldset>	
 <?php
 		// echo $this->Form->input('valor', array('class' => 'span5'));
 		echo $this->Form->input('observaciones', array('class' => 'span5'));
 		// echo $this->Form->input('estado', array('class' => 'span5'));
-		echo $this->Form->input('infraction_id', array('class' => 'span5'));
-		echo $this->Form->input('infractor_id', array('class' => 'span5'));
-		echo $this->Form->input('user_id', array('class' => 'span5'));
+		
+		// echo $this->Form->input('infractor_id', array('class' => 'span5'));
+		// echo $this->Form->input('user_id', array('class' => 'span5'));
 	?>
-
+<fieldset>
+			<legend>Datos del Funcionario</legend>
+			<div class="inline-block-form">
+	<?php
+		echo $this->Form->input('Funcionario.numero_documento', array('label'=>'Número de Documento', 'class' => 'span2'));
+		echo $this->Form->input('Funcionario.nombre', array('class' => 'span3'));
+		/*echo $this->Form->input('fecha', array('class' => 'span5'));
+		echo $this->Form->input('hora', array('class' => 'span5'));
+		echo $this->Form->input('tipo_sancion', array('class' => 'span5'));
+		echo $this->Form->input('lugar', array('class' => 'span5'));
+		echo $this->Form->input('valor', array('class' => 'span5'));
+		echo $this->Form->input('observaciones', array('class' => 'span5'));
+		echo $this->Form->input('estado', array('class' => 'span5'));
+		echo $this->Form->input('concept_id', array('class' => 'span5'));
+		echo $this->Form->input('infractor_id', array('class' => 'span5'));
+		echo $this->Form->input('user_id', array('class' => 'span5'));*/
+	?>
+	</div>
+	</fieldset>	
 		
 <?php echo $this->Form->end(array('label' => 'Registrar','class' => 'btn btn-primary'));?>
 

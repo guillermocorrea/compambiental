@@ -17,6 +17,33 @@ class Infractor extends AppModel {
 	
 	public $actsAs = array('Containable');
 
+	/**
+	* Get infractor id
+	*/
+	public function getInfractorId($tipo_documento, $numero_documento) 
+	{
+		if ($tipo_documento == null || $numero_documento == null) 
+		{
+			throw new CakeException(__('Null arguments'));
+		}
+
+		$infractor_id = $this->find('first', array(
+			'conditions' => array(
+				'Infractor.tipo_documento' => $tipo_documento,
+				'Infractor.numero_documento' => $numero_documento
+				), //array of conditions
+		    'recursive' => -1, //int
+		    'fields' => array('Infractor.id') //array of field names
+		));
+
+		if ($infractor_id) 
+		{
+			return $infractor_id['Infractor']['id'];
+		}
+
+		return false;
+	}
+
 	public $validate = array(
 		'tipo_documento' => array(
         	'required' => array (
